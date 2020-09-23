@@ -13,6 +13,6 @@ resource "aws_security_group_rule" "ssh-access" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = data.terraform_remote_state.terraform-cloud-tier2.outputs.infra_internal_subnet.cidr_block
+  cidr_blocks       = [data.terraform_remote_state.terraform-cloud-tier2.outputs.infra_internal_subnet.cidr_block]
   security_group_id = aws_security_group.infra_internal.id
 }

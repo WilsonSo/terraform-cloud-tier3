@@ -16,3 +16,9 @@ resource "aws_security_group_rule" "ssh-access" {
   cidr_blocks       = [data.terraform_remote_state.terraform-cloud-tier2.outputs.infra_internal_subnet.cidr_block]
   security_group_id = aws_security_group.infra_internal.id
 }
+
+resource "aws_iam_server_certificate" "cert" {
+  name             = "internal_api_cert"
+  certificate_body = var.internal_certificate
+  private_key      = var.private_key
+}

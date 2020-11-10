@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "ssh-access" {
 }
 
 locals {
-  certificate_arn = var.active_internal_api_certificate == "2" ? aws_iam_server_certificate.cert.arn: aws_iam_server_certificate.cert_2.arn
+  certificate_arn = var.active_internal_api_certificate == "2" ? aws_iam_server_certificate.cert_2.arn: aws_iam_server_certificate.cert.arn
 }
 
 resource "aws_iam_server_certificate" "cert" {
